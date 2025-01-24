@@ -5,7 +5,7 @@ import ChallengesSection from "../components/ChallengesSection";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col h-screen font-inria">
+    <div className="flex flex-col h-screen font-inria bg-[#659c907d]">
       <Header />
       <div className="flex flex-1 h-full overflow-hidden ">
         <SideBar />
