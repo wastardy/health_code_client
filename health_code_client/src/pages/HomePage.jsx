@@ -5,11 +5,11 @@ import ChallengesSection from "../components/ChallengesSection";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen font-inria">
       <Header />
-      <div className="flex flex-1 h-full overflow-hidden">
+      <div className="flex flex-1 h-full overflow-hidden ">
         <SideBar />
-        <div className="flex flex-col flex-1 p-4 overflow-y-auto">
+        <div className="flex flex-col flex-1 p-4 overflow-y-auto ">
           <PostsSection />
         </div>
         <div className="flex flex-col flex-1 p-4 overflow-y-auto">
