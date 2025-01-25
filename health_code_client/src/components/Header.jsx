@@ -1,6 +1,14 @@
 const Header = () => {
+  const headerIcons = [
+    { id: 1, src: "src/assets/svg/interest-facts.svg" },
+    { id: 2, src: "src/assets/svg/food.svg" },
+    { id: 3, src: "src/assets/svg/sleep-and-water.svg" },
+    { id: 4, src: "src/assets/svg/trainings.svg" },
+    { id: 5, src: "src/assets/svg/routine.svg" },
+  ];
+
   return (
-    <div className="flex justify-between items-center px-4 py-2 bg-[#797d89] text-white">
+    <div className="flex justify-between items-center px-4 py-2 bg-[#797d89] text-white rounded-br-lg">
       <div className="flex flex-row">
         <div className="w-12 h-12 rounded-md mr-4">
           <img
@@ -17,8 +25,8 @@ const Header = () => {
         />
       </div>
       <div className="flex gap-2">
-        {[...Array(5)].map((_, index) => (
-          <div key={index} className="w-8 h-8 bg-gray-200 rounded-md"></div>
+        {headerIcons.map(({ id, src }) => (
+          <img key={id} src={src} alt="" className="h-12 w-10" />
         ))}
       </div>
     </div>
