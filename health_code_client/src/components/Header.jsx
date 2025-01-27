@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   const headerIcons = [
     { id: 1, src: "src/assets/svg/interest-facts.svg" },
@@ -10,13 +12,15 @@ const Header = () => {
   return (
     <div className="flex justify-between items-center px-4 py-2 bg-[#797d89] text-white rounded-br-lg">
       <div className="flex flex-row">
-        <div className="w-12 h-12 rounded-md mr-4">
-          <img
-            src="src/assets/logos/main-logo.png"
-            alt="GitHub"
-            className="h-full w-full"
-          />
-        </div>
+        <Link to="/">
+          <div className="w-12 h-12 rounded-md mr-4">
+            <img
+              src="src/assets/logos/main-logo.png"
+              alt="GitHub"
+              className="h-full w-full"
+            />
+          </div>
+        </Link>
         <h1 className="text-[30px] items-center">HealthCode</h1>
         <input
           type="text"

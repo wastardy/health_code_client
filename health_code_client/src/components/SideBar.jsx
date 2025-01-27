@@ -10,7 +10,7 @@ const SideBar = () => {
             alt="background"
             className="w-full h-[90px]"
           />
-          <div className="w-[110px] h-[110px] rounded-full overflow-hidden absolute mt-11 ml-5">
+          <div className="w-[110px] h-[110px] rounded-full overflow-hidden absolute mt-11 ml-5 drop-shadow-lg">
             <img
               src="src/assets/images/profilePic.png"
               alt="profile"
