@@ -1,109 +1,79 @@
-const PostsSection = () => {
-  return (
-    <div className="p-4 bg-[#659c907d] rounded-lg flex flex-col gap-4">
-      <div className="card flex flex-row bg-[#EBEBEB] p-3 drop-shadow-lg items-center gap-10">
-        <div className="w-[60px] h-[60px] rounded-full overflow-hidden ml-5 border-2 border-[#808080]">
-          <img
-            src="src/assets/images/profilePic.png"
-            alt="profile"
-            className="object-cover w-full h-full"
-          />
-        </div>
-        <input
-          type="text"
-          placeholder="What is happening?"
-          className="input rounded-full border-2 border-[#808080] drop-shadow-lg w-[300px]"
-        />
-        <button
-          type="submit"
-          className="rounded-full border-2 border-[#808080] drop-shadow-lg p-3 bg-[#9a9ba1] text-white"
-        >
-          Post
-        </button>
-      </div>
+import { useState } from "react";
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-      <div className="card flex flex-row bg-[#EBEBEB] p-5 drop-shadow-lg items-center gap-10">
-        <div className="flex flex-col">
-          <div className="flex flex-row gap-5">
-            <div className="w-[60px] h-[60px] rounded-full ml-5 border-2 border-[#808080]">
-              <img
-                src="src/assets/images/profilePic.png"
-                alt="profile"
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <div className="flex flex-col my-auto">
-              <h2 className="text-xl">Viktor Mandziak</h2>
-              <p className="text-xs text-[#808080]">14 min ago</p>
-            </div>
-          </div>
-          <div className="mx-auto mt-3">
-            <p className="text-lg">Morning workout{">>>"}</p>
-            <img
-              src="src/assets/images/test.png"
-              alt="Photo"
-              className="drop-shadow-lg mt-3"
-            />
-          </div>
-          <div className="flex justify-between mt-5">
-            <img
-              src="src/assets/logos/heart.png"
-              alt="like"
-              className="h-6 w-6"
-            />
-            <img
-              src="src/assets/logos/chat.png"
-              alt="comment"
-              className="h-6 w-6"
-            />
-            <img
-              src="src/assets/logos/share.png"
-              alt="shake"
-              className="h-6 w-6"
-            />
-          </div>
+const usePostStore = create(
+  persist(
+    (set) => ({
+      posts: [],
+      addPost: (post) => set((state) => ({ posts: [post, ...state.posts] })),
+    }),
+    {
+      name: "post-storage",
+    }
+  )
+);
+
+const PostsSection = () => {
+  const [inputText, setInputText] = useState("");
+  const addPost = usePostStore((state) => state.addPost);
+  const posts = usePostStore((state) => state.posts);
+
+  const handlePost = () => {
+    if (inputText.trim() !== "") {
+      const now = new Date();
+      const formattedDate = now
+        .toLocaleDateString("eng")
+        .split(".")
+        .map((num) => num.padStart(2, "0"))
+        .join(".");
+      const formattedTime = now.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      
+      const newPost = {
+        id: Date.now(),
+        user: "Current User",
+        time: `${formattedDate} ${formattedTime}`,
+        text: inputText,
+      };
+      addPost(newPost);
+      setInputText("");
+    }
+  };
+
+  return (
+    <div>
+      <div className="p-4 rounded-lg flex flex-col gap-4">
+        <div className="flex flex-row bg-[#7aa299b5] p-5 drop-shadow-lg items-center gap-10 fixed z-50 w-[537px] rounded-3xl">
+          <input
+            type="text"
+            placeholder="What is happening?"
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+            className="input rounded-full border-2 border-[#808080] drop-shadow-lg w-[400px] p-2"
+          />
+          <button
+            type="submit"
+            onClick={handlePost}
+            className="rounded-full border-2 border-[#808080] drop-shadow-lg p-3 bg-[#9a9ba1] text-white"
+          >
+            Post
+          </button>
         </div>
-      </div>
-      <div className="card flex flex-row bg-[#EBEBEB] p-5 drop-shadow-lg items-center gap-10">
-        <div className="flex flex-col">
-          <div className="flex flex-row gap-5">
-            <div className="w-[60px] h-[60px] rounded-full ml-5 border-2 border-[#808080]">
-              <img
-                src="src/assets/images/profilePic.png"
-                alt="profile"
-                className="object-cover w-full h-full"
-              />
+
+        <div className="flex flex-col mt-[100px] gap-4">
+          {posts.map((post) => (
+            <div
+              key={post.id}
+              className="card flex flex-col bg-[#EBEBEB] p-4 drop-shadow-lg max-w-[537px] rounded-3xl"
+            >
+              <h2 className="text-xl font-semibold">{post.user}</h2>
+              <p className="text-xs text-[#808080]">{post.time}</p>
+              <p className="text-lg mt-2">{post.text}</p>
             </div>
-            <div className="flex flex-col my-auto">
-              <h2 className="text-xl">Viktor Mandziak</h2>
-              <p className="text-xs text-[#808080]">14 min ago</p>
-            </div>
-          </div>
-          <div className="mx-auto mt-3">
-            <p className="text-lg">Morning workout{">>>"}</p>
-            <img
-              src="src/assets/images/test.png"
-              alt="Photo"
-              className="drop-shadow-lg mt-3"
-            />
-          </div>
-          <div className="flex justify-between mt-5">
-            <img
-              src="src/assets/logos/heart.png"
-              alt="like"
-              className="h-6 w-6"
-            />
-            <img
-              src="src/assets/logos/chat.png"
-              alt="comment"
-              className="h-6 w-6"
-            />
-            <img
-              src="src/assets/logos/share.png"
-              alt="shake"
-              className="h-6 w-6"
-            />
-          </div>
+          ))}
         </div>
       </div>
     </div>

@@ -1,60 +1,32 @@
-import { useState } from "react";
-
-const challenges = [
-  {
-    id: 1,
-    icon: "src/assets/logos/test1.png",
-    title: "Sort of description",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-  },
-  {
-    id: 2,
-    icon: "src/assets/logos/test2.png",
-    title: "Sort of description",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-  },
-  {
-    id: 3,
-    icon: "src/assets/logos/test3.png",
-    title: "Sort of description",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-  },
-  {
-    id: 4,
-    icon: "src/assets/logos/test4.png",
-    title: "Sort of description",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-  },
-  {
-    id: 5,
-    icon: "src/assets/logos/test5.png",
-    title: "Sort of description",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-  },
-];
+import useStore from "../store/useChallengesStore";
 
 const ChallengesSection = () => {
-  const [completedChallenges, setCompletedChallenges] = useState([]);
-
-  const handleCheckboxChange = (id) => {
-    setCompletedChallenges((prev) =>
-      prev.includes(id)
-        ? prev.filter((challengeId) => challengeId !== id)
-        : [...prev, id]
-    );
-  };
-
+  const { challenges, completedChallenges, removeChallenge, toggleChallengeCompletion } = useStore();
+  
   const progressPercentage = Math.round(
     (completedChallenges.length / challenges.length) * 100
   );
 
+  const handleCheckboxChange = (id) => {
+    toggleChallengeCompletion(id);
+  };
+
+  // const handleAddChallenge = () => {
+  //   const newChallenge = {
+  //     id: Date.now(),
+  //     icon: "src/assets/logos/test6.png",
+  //     title: "New Challenge",
+  //     description: "A newly added challenge description",
+  //   };
+  //   addChallenge(newChallenge);
+  // };
+
+  const handleRemoveChallenge = (id) => {
+    removeChallenge(id);
+  };
+
   return (
-    <div className="mx-auto bg-[#659c907d] p-6 rounded-lg overflow-y-hidden">
+    <div className="mx-auto p-6 rounded-lg overflow-y-hidden bg-[#7aa299b5]">
       <div className="flex h-20 w-[80%] mx-auto justify-center bg-[#797d89] rounded-t-3xl items-center">
         <h1 className="text-center text-3xl font-inria font-bold text-white">
           Current challenges
@@ -86,10 +58,17 @@ const ChallengesSection = () => {
                 checked={completedChallenges.includes(challenge.id)}
                 onChange={() => handleCheckboxChange(challenge.id)}
               />
+              <button
+                className="ml-2 text-red-600"
+                onClick={() => handleRemoveChallenge(challenge.id)}
+              >
+                Remove
+              </button>
             </div>
           ))}
         </div>
       </div>
+      
       <div className="w-[80%] mx-auto p-4 bg-[#EBEBEB] rounded-3xl shadow-lg max-h-[540px] mt-4">
         <div className="w-full bg-gray-300 rounded-full h-4">
           <div
@@ -101,6 +80,14 @@ const ChallengesSection = () => {
           {progressPercentage}% completed
         </p>
       </div>
+      {/* <div className="flex justify-center mt-4">
+        <button
+          className="btn btn-primary"
+          onClick={handleAddChallenge}
+        >
+          +
+        </button>
+      </div> */}
     </div>
   );
 };
