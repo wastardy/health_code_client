@@ -2,7 +2,7 @@ import { useState } from "react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-const usePostStore = create(
+export const usePostStore = create(
   persist(
     (set) => ({
       posts: [],

@@ -43,8 +43,8 @@ const AddChallengeModal = ({ onClose }) => {
                 key={index}
                 src={icon}
                 alt="challenge icon"
-                className={`w-12 h-12 rounded-full cursor-pointer ${
-                  selectedIcon === icon ? "border-2 border-[#797d89] p-1 drop-shadow-lg" : ""
+                className={`w-12 h-12 rounded-lg cursor-pointer ${
+                  selectedIcon === icon ? "bg-[#a8a6ad54] p-1 drop-shadow-md" : ""
                 }`}
                 onClick={() => setSelectedIcon(icon)}
               />
