@@ -34,7 +34,7 @@ const SideBar = () => {
         <img
           src="src/assets/logos/friends.png"
           alt="profile"
-          className="w-10 h-10"
+          className="w-10 h-8"
         />
         <h3 className="text-[17px]">Your friends</h3>
       </div>
@@ -42,7 +42,7 @@ const SideBar = () => {
         <img
           src="src/assets/logos/recipes.png"
           alt="profile"
-          className="w-10 h-10"
+          className="w-10 h-8"
         />
         <h3 className="text-[17px]">Saved recipes</h3>
       </div>
@@ -50,24 +50,24 @@ const SideBar = () => {
         <img
           src="src/assets/logos/challenges.png"
           alt="profile"
-          className="w-10 h-10"
+          className="w-10 h-8"
         />
         <h3 className="text-[17px]">Saved challenges</h3>
       </div>
 
       <div className="flex flex-col mx-auto">
         <h2 className="text-center">Follow us on</h2>
-        <div className="flex flex-row gap-5">
+        <div className="flex flex-row gap-5 my-2">
           <img
             src="src/assets/logos/insta.png"
             alt="Instagram"
-            className="h-5 w-5"
+            className="h-8 w-8"
           />
-          <img src="src/assets/logos/x.png" alt="X" className="h-5 w-5" />
+          <img src="src/assets/logos/x.png" alt="X" className="h-8 w-8" />
           <img
             src="src/assets/logos/github.png"
             alt="GitHub"
-            className="h-5 w-5"
+            className="h-8 w-8"
           />
         </div>
       </div>

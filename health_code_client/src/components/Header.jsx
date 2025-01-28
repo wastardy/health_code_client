@@ -38,7 +38,7 @@ const Header = () => {
             <Link
               key={index}
               to="/"
-              className="w-12 h-12 rounded-lg cursor-pointer flex items-center justify-center bg-[#c8c8c859] p-1 drop-shadow-md"
+              className="w-12 h-12 rounded-lg cursor-pointer flex items-center justify-center bg-[#c8c8c859] p-1 drop-shadow-md ml-4 "
             >
               <img
                 src={icon}
@@ -51,7 +51,7 @@ const Header = () => {
               key={index}
               src={icon}
               alt="challenge icon"
-              className={`w-12 h-12 rounded-lg cursor-pointer ${
+              className={`ml-4 w-12 h-12 rounded-lg cursor-pointer ${
                 selectedIcon === icon ? "bg-[#3B712759] p-1 drop-shadow-md" : ""
               }`}
               onClick={() => setSelectedIcon(icon)}

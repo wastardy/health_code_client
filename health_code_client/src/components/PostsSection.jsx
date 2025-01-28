@@ -31,10 +31,10 @@ const PostsSection = () => {
         hour: "2-digit",
         minute: "2-digit",
       });
-      
+
       const newPost = {
         id: Date.now(),
-        user: "Current User",
+        user: "Viktor Mandziak",
         time: `${formattedDate} ${formattedTime}`,
         text: inputText,
       };
