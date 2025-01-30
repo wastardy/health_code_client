@@ -62,7 +62,7 @@ const ChallengesSection = () => {
                 className="ml-2 text-red-600"
                 onClick={() => handleRemoveChallenge(challenge.id)}
               >
-                <img src="../src/assets/logos/trash.png" alt="" className="h-7 w-7"/>
+                <img src="./assets/logos/trash.png" alt="" className="h-7 w-7"/>
               </button>
             </div>
           ))}

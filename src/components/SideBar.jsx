@@ -38,7 +38,7 @@ const SideBar = () => {
 
       <div className="card flex flex-row bg-[#EBEBEB] p-3 drop-shadow-lg items-center gap-10">
         <img
-          src="src/assets/logos/friends.png"
+          src="./assets/logos/friends.png"
           alt="profile"
           className="w-10 h-8"
         />
@@ -46,7 +46,7 @@ const SideBar = () => {
       </div>
       <div className="card flex flex-row bg-[#EBEBEB] p-3 drop-shadow-lg items-center gap-10">
         <img
-          src="src/assets/logos/recipes.png"
+          src="./assets/logos/recipes.png"
           alt="profile"
           className="w-10 h-8"
         />
@@ -54,7 +54,7 @@ const SideBar = () => {
       </div>
       <div className="card flex flex-row bg-[#EBEBEB] p-3 drop-shadow-lg items-center gap-8">
         <img
-          src="src/assets/logos/challenges.png"
+          src="./assets/logos/challenges.png"
           alt="profile"
           className="w-10 h-8"
         />

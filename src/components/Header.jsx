@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+
 const Header = () => {
   const [selectedIcon, setSelectedIcon] = useState("");
 
   const headerIcons = [
-    "../src/assets/svg/interest-facts.svg",
-    "../src/assets/svg/food.svg",
-    "../src/assets/svg/sleep-and-water.svg",
-    "../src/assets/svg/trainings.svg",
-    "../src/assets/svg/routine.svg",
-    "../src/assets/logos/home.png",
+    "./assets/svg/interest-facts.svg",
+    "./assets/svg/food.svg",
+    "./assets/svg/sleep-and-water.svg",
+    "./assets/svg/trainings.svg",
+    "./assets/svg/routine.svg",
+    "./assets/logos/home.png",
   ];
 
   return (
@@ -19,7 +20,7 @@ const Header = () => {
         <Link to="/">
           <div className="w-12 h-12 rounded-md mr-4">
             <img
-              src="../src/assets/logos/main-logo.png"
+              src="./assets/logos/main-logo.png"
               alt="GitHub"
               className="h-full w-full"
             />
