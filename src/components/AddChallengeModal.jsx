@@ -9,11 +9,11 @@ const AddChallengeModal = ({ onClose }) => {
   const [description, setDescription] = useState("");
 
   const icons = [
-    "src/assets/logos/test1.png",
-    "src/assets/logos/test2.png",
-    "src/assets/logos/test3.png",
-    "src/assets/logos/test4.png",
-    "src/assets/logos/test5.png",
+    "../src/assets/logos/test1.png",
+    "../src/assets/logos/test2.png",
+    "../src/assets/logos/test3.png",
+    "../src/assets/logos/test4.png",
+    "../src/assets/logos/test5.png",
   ];
 
   const handleSubmit = () => {
