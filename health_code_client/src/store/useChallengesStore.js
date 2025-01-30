@@ -1,41 +1,34 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 const useStore = create((set) => ({
   challenges: [
     {
       id: 1,
-      icon: "src/assets/logos/test1.png",
-      title: "Sort of description",
+      icon: "src/assets/logos/test4.png",
+      title: "The Power Push-Up Challenge",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
+        "Push-ups are a classic test of upper body strength, endurance, and mental fortitude. For this challenge, aim to do as many push-ups as you can in a row.",
     },
     {
       id: 2,
       icon: "src/assets/logos/test2.png",
-      title: "Sort of description",
+      title: "The Hydration Hustle Challenge",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
+        "Drink a set amount of water daily (e.g., 2-3 liters or half your body weight in ounces) for 7 days.",
     },
     {
       id: 3,
       icon: "src/assets/logos/test3.png",
-      title: "Sort of description",
+      title: "The Sleep Recharge Challenge",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
+        "Avoid screens at least 30 minutes before bed and create a calming bedtime routine to signal to your body that it's time to rest",
     },
     {
       id: 4,
       icon: "src/assets/logos/test4.png",
-      title: "Sort of description",
+      title: "The Core Crusher Challenge",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
-    },
-    {
-      id: 5,
-      icon: "src/assets/logos/test5.png",
-      title: "Sort of description",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
+        "Your core is the foundation of all movement. This challenge focuses on building core strength and stability. ",
     },
   ],
   completedChallenges: [],

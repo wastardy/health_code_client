@@ -1,12 +1,28 @@
 import { useState } from "react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faComment, faShare } from "@fortawesome/free-solid-svg-icons";
 
 export const usePostStore = create(
   persist(
     (set) => ({
       posts: [],
+      likedPosts: {},
       addPost: (post) => set((state) => ({ posts: [post, ...state.posts] })),
+      toggleLike: (postId) =>
+        set((state) => {
+          const isLiked = state.likedPosts[postId]?.liked;
+          const newLikeCount = isLiked
+            ? state.likedPosts[postId].count - 1
+            : (state.likedPosts[postId]?.count || 0) + 1;
+          return {
+            likedPosts: {
+              ...state.likedPosts,
+              [postId]: { liked: !isLiked, count: newLikeCount },
+            },
+          };
+        }),
     }),
     {
       name: "post-storage",
@@ -18,6 +34,8 @@ const PostsSection = () => {
   const [inputText, setInputText] = useState("");
   const addPost = usePostStore((state) => state.addPost);
   const posts = usePostStore((state) => state.posts);
+  const likedPosts = usePostStore((state) => state.likedPosts);
+  const toggleLike = usePostStore((state) => state.toggleLike);
 
   const handlePost = () => {
     if (inputText.trim() !== "") {
@@ -34,7 +52,7 @@ const PostsSection = () => {
 
       const newPost = {
         id: Date.now(),
-        user: "Viktor Mandziak",
+        user: "Anthony Edwards",
         time: `${formattedDate} ${formattedTime}`,
         text: inputText,
       };
@@ -72,6 +90,31 @@ const PostsSection = () => {
               <h2 className="text-xl font-semibold">{post.user}</h2>
               <p className="text-xs text-[#808080]">{post.time}</p>
               <p className="text-lg mt-2">{post.text}</p>
+              <div className="flex justify-between mt-5">
+                <div className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faHeart}
+                    className={`h-6 w-6 cursor-pointer ${
+                      likedPosts[post.id]?.liked
+                        ? "text-red-500"
+                        : "text-gray-500"
+                    }`}
+                    onClick={() => toggleLike(post.id)}
+                  />
+                  <span className="ml-2 text-sm">
+                    {likedPosts[post.id]?.count || 0}{" "}
+                    {/* Display the like count */}
+                  </span>
+                </div>
+                <FontAwesomeIcon
+                  icon={faComment}
+                  className="h-6 w-6 cursor-pointer text-gray-500"
+                />
+                <FontAwesomeIcon
+                  icon={faShare}
+                  className="h-6 w-6 cursor-pointer text-gray-500"
+                />
+              </div>
             </div>
           ))}
         </div>

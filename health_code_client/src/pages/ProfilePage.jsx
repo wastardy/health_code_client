@@ -19,7 +19,7 @@ const ProfilePage = () => {
             <div className="flex flex-col">
               <div className="w-[180px] h-[180px] rounded-full overflow-hidden mt-10 drop-shadow-lg">
                 <img
-                  src="src/assets/images/profilePic.png"
+                  src="https://playerstv.com/wp-content/uploads/2024/02/GetPaidStock.com-65d3b9d9dc21e.jpg"
                   alt="profile"
                   className="object-cover w-full h-full"
                 />
@@ -28,7 +28,7 @@ const ProfilePage = () => {
 
             <div className="mt-20 ml-10">
               <div className="flex flex-row gap-10">
-                <h1 className="text-xl font-bold">Viktor Mandziak</h1>
+                <h1 className="text-xl font-bold">Anthony Edwards</h1>
               </div>
               <div className="flex flex-col gap-3 mt-5">
                 <div className="flex flex-row gap-10">
@@ -38,8 +38,9 @@ const ProfilePage = () => {
                 <p className="max-w-[250px]">
                   Bio:
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Professional athlete with 20 years of experience. Passionate
+                    about pushing limits and achieving excellence on national
+                    and international stages.
                   </p>
                 </p>
               </div>
